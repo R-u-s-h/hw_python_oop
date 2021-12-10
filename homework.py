@@ -35,17 +35,30 @@ class Training:
 
 class Running(Training):
     """Тренировка: бег."""
-    pass
+    
+
+    def get_spent_calories(self) -> float:
+        """Получить количество затраченных калорий."""
 
 
 class SportsWalking(Training):
     """Тренировка: спортивная ходьба."""
-    pass
+    self.height = height
+
+    def get_spent_calories(self) -> float:
+        """Получить количество затраченных калорий."""
 
 
 class Swimming(Training):
     """Тренировка: плавание."""
-    pass
+    self.length_pool = length_pool
+    self.count_pool = count_pool
+
+    def get_mean_speed(self) -> float:
+        """Получить среднюю скорость движения."""
+
+    def get_spent_calories(self) -> float:
+        """Получить количество затраченных калорий."""
 
 
 def read_package(workout_type: str, data: list) -> Training:
