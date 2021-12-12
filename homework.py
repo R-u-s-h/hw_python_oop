@@ -10,8 +10,7 @@ class Training:
     def __init__(self,
                  action: int,
                  duration: float,
-                 weight: float,
-                 ) -> None:
+                 weight: float) -> None:
         self.action = action
         self.duration = duration
         self.weight = weight
@@ -55,8 +54,7 @@ class SportsWalking(Training):
                  action: int, 
                  duration: float, 
                  weight: float, 
-                 height: float
-                 ) -> None:
+                 height: float) -> None:
 
         super().__init__(action, duration, weight)
         self.height = height
@@ -79,8 +77,7 @@ class Swimming(Training):
                 duration: float, 
                 weight: float, 
                 length_pool: float, 
-                count_pool:float
-                ) -> None:
+                count_pool:float) -> None:
         
         super().__init__(action, duration, weight)
         self.length_pool = length_pool
@@ -113,7 +110,12 @@ class InfoMessage:
 
 def read_package(workout_type: str, data: list) -> Training:
     """Прочитать данные полученные от датчиков."""
-    pass
+    read_package = {
+        'SWM': Swimming,
+        'RUN': Running,
+        'WLK': SportsWalking
+    }
+    return read_package[workout_type](*data)
 
 
 def main(training: Training) -> None:
